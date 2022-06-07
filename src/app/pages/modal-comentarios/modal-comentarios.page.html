@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Comentarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button (click)="volver()">
+    <ion-icon name="chevron-back"></ion-icon>
+  </ion-button>
+
+  <ion-list>
+    <ion-card *ngFor="let comentario of comentarios">
+      <ion-card-header>
+        <ion-card-title><strong>{{comentario['comentario']}}</strong></ion-card-title>
+        <ion-card-subtitle><strong>Valoracion : {{comentario['valoracion']}}</strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Comentario de {{comentario['usuario']['nombre']}}</strong></ion-card-subtitle>
+      </ion-card-header>
+      </ion-card>
+  </ion-list>
+
+  <p></p><p></p><p></p>
+
+  <div class="ion-text-center"><strong>Añadir comentario</strong></div>
+
+  <form #f="ngForm" (ngSubmit)="crear()">
+    <ion-item>
+      <ion-label>Comentario:</ion-label>
+      <ion-input type="text" [(ngModel)]="comentario" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Valoracion:</ion-label>
+      <ion-input type="text" [(ngModel)]="valoracion" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <p class="ion-text-center">
+      <ion-button type="submit">Guardar</ion-button>
+    </p>  
+  </form>
+
+</ion-content>

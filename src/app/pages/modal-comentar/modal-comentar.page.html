@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modal-comentar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #f="ngForm" (ngSubmit)="crear()">
+    <ion-item>
+      <ion-label>Comentario:</ion-label>
+      <ion-input type="text" [(ngModel)]="comentario" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Valoracion:</ion-label>
+      <ion-input type="text" [(ngModel)]="valoracion" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <p class="ion-text-center">
+      <ion-button type="submit">Guardar</ion-button>
+    </p>  
+  </form>
+
+</ion-content>

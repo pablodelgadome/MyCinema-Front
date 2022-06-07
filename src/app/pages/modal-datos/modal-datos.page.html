@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><strong>{{pelicula['titulo']}}</strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><ion-img width="10px" src="{{pelicula['imagen']}}"></ion-img></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Categoria: {{pelicula['categoria']}}</strong></p>
+      <p><strong>Esta pelicula esta producida por {{pelicula['productor']}}</strong></p>
+      <p><strong>Sinopsis : {{pelicula['sinapsis']}}</strong></p>
+      <p><strong>Duracion : {{pelicula['duracion']}}</strong></p> <p><strong>Valoracion : {{pelicula['valoracion']}}/5</strong></p>
+    </ion-card-content>
+    </ion-card>
+    <ion-button (click)="volver()">Volver</ion-button>
+
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Elegir asiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-img width="10px" src="assets/Cine.PNG"></ion-img>
+
+  <p></p><p></p>
+
+  <ion-item>
+    <ion-label>Elige una fila</ion-label>
+    <ion-select [(ngModel)]="fila">
+      <ion-select-option *ngFor="let f of filas" value="{{ f }}">Fila {{ f }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <p></p>
+
+  <ion-item>
+    <ion-label>Elige una butaca</ion-label>
+    <ion-select [(ngModel)]="butaca">
+      <ion-select-option *ngFor="let b of butacas" value="{{ b }}">Butaca {{b}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <p></p><p></p>
+
+  <ion-item class="ion-text-center">
+    <ion-button (click)="reservar(butaca,fila)">Comprar entrada</ion-button>
+  </ion-item>
+
+  Precio total : {{p}} euros
+
+</ion-content>

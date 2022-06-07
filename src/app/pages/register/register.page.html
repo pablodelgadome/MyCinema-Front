@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <form #f="ngForm" (ngSubmit)="regris()">
+    <ion-item>
+        <ion-label>Dni:</ion-label>
+        <ion-input type="text" [(ngModel)]="dni" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nombre:</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Contraseña:</ion-label>
+        <ion-input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Confirmar contraseña:</ion-label>
+        <ion-input type="password" [(ngModel)]="c_password" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+  
+      
+      <div *ngIf="password==c_password; else conditionFalse">
+        <p class="ion-text-center">
+          <ion-button type="submit" [routerLink]="['/login']" >Guardar</ion-button>
+        </p>  
+      </div>
+      <ng-template #conditionFalse>
+        <ion-card class="ion-text-center">
+          <ion-card-header>
+            <ion-card-subtitle>
+              Asegurese de que los datos son correctos
+            </ion-card-subtitle>
+          </ion-card-header>    
+        </ion-card>
+      </ng-template>
+      
+    </form>
+
+
+</ion-content>

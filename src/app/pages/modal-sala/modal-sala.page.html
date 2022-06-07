@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Salas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label>Elige una sala</ion-label>
+    <ion-select [(ngModel)]="sala">
+      <ion-select-option *ngFor="let sala of salas" value="{{ sala.id }}">Sala {{ sala.id }} - 3D : {{sala.tridimensional}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Elige un complemento</ion-label>
+    <ion-select [(ngModel)]="complemento">
+      <ion-select-option *ngFor="let c of complementos" value="{{ c.nombre }}">{{ c.nombre }} {{c.tamanio}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <div>
+    <p class="ion-text-center">
+      <ion-button type="submit" (click)="abrirModalEntrada(sala,complemento)">Guardar</ion-button>
+    </p>  
+  </div>
+
+</ion-content>

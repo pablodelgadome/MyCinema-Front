@@ -1,0 +1,7 @@
+{
+  "name": "MyCinema",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
