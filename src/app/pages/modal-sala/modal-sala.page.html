@@ -9,7 +9,7 @@
   <ion-item>
     <ion-label>Elige una sala</ion-label>
     <ion-select [(ngModel)]="sala">
-      <ion-select-option *ngFor="let sala of salas" value="{{ sala.id }}">Sala {{ sala.id }} - 3D : {{sala.tridimensional}}</ion-select-option>
+      <ion-select-option *ngFor="let sala of salas" value="{{ sala.id }}">Sala {{ sala.id }} - <p *ngIf=" sala.tridimensional == 0" > 2D</p><p *ngIf=" sala.tridimensional == 1" > 3D</p></ion-select-option>
     </ion-select>
   </ion-item>
 
