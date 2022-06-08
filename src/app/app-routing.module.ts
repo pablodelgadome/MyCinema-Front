@@ -53,6 +53,10 @@ const routes: Routes = [
   {
     path: 'modal-error',
     loadChildren: () => import('./pages/modal-error/modal-error.module').then( m => m.ModalErrorPageModule)
+  },
+  {
+    path: 'modal-completado',
+    loadChildren: () => import('./pages/modal-completado/modal-completado.module').then( m => m.ModalCompletadoPageModule)
   }
 ];
 @NgModule({

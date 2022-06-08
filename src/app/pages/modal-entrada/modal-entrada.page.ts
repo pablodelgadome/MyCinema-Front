@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { RestService } from 'src/app/services/rest.service';
+import { ModalCompletadoPage } from '../modal-completado/modal-completado.page';
 import { ModalErrorPage } from '../modal-error/modal-error.page';
 
 @Component({
@@ -105,6 +106,7 @@ export class ModalEntradaPage implements OnInit {
       {
         this.restService.comprarEntrada(this.restService.fecha,this.restService.precioTotal,this.complemento[0],this.restService.pelicula,this.restService.salas[i],this.restService.user,this.butaca,this.fila);
         console.log("Entrada comprada");
+        this.abrirModalCompletado();
       }
     }
     else
@@ -120,6 +122,21 @@ export class ModalEntradaPage implements OnInit {
      componentProps: {
       b,
       f
+     }
+     
+   });
+ 
+   await modal.present();
+ 
+   const { data } = await modal.onDidDismiss();
+ 
+   this.showLoading();
+   }
+
+   async abrirModalCompletado() {
+    const modal = await this.modalCtrl.create({
+     component: ModalCompletadoPage,
+     componentProps: {
      }
      
    });
