@@ -73,4 +73,9 @@ async abrirmodalDatos(pelicula:any)
  this.showLoading();
 }
 
+registrarme()
+{
+  this.route.navigate(['/register']);
+}
+
 }

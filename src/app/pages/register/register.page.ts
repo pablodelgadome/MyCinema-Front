@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -14,14 +15,14 @@ export class RegisterPage implements OnInit {
   password:any;
   c_password:any;
 
-  constructor(private restService: RestService) { }
+  constructor(private restService: RestService, private route: Router) { }
 
   ngOnInit() {
   }
 
   regris() {
     this.restService.register(this.dni,this.nombre,this.email,this.password);
-    console.log("Registrado");
+    this.route.navigate(['/']);
   }
 
 }
