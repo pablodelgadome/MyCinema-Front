@@ -27,6 +27,7 @@ export class ModalEntradaPage implements OnInit {
   constructor(private loadingCtrl: LoadingController,private restService: RestService,private modalCtrl: ModalController) { }
 
   ngOnInit() {
+    console.log(this.restService.salas);
     this.showLoading();
     this.obtener();
   }
@@ -73,7 +74,7 @@ export class ModalEntradaPage implements OnInit {
           this.sala.push(data[i]);
         }
       }
-      //console.log(this.sala[0]);
+      console.log(this.sala[0]);
       
     });
   }
@@ -90,26 +91,21 @@ export class ModalEntradaPage implements OnInit {
         {
           this.libre=false;
           this.abrirModalError(butaca,fila);
-          console.log(this.libre);
-          console.log('se lia');
         }
         else
         {
           this.libre=true;
-         console.log('Comprar');
         }
     }
 
-    /*console.log(this.restService.precioTotal);
-    console.log(this.restService.complemento);
-    console.log(this.restService.pelicula);
-    console.log(this.restService.sala);
-    console.log(this.restService.user);*/
     if(this.libre===true)
     {
-      console.log(this.libre);
-      this.restService.comprarEntrada("2022-05-26",this.restService.precioTotal,this.complemento[0],this.restService.pelicula,{"id": 1,"tridimensional": true},this.restService.user,this.butaca,this.fila);
-      console.log("Entrada comprada");
+      for(let i = 0 ; i<this.restService.salas.length ; i++)
+      if(this.restService.salas[i]['id'] == this.restService.salaObject)
+      {
+        this.restService.comprarEntrada(this.restService.fecha,this.restService.precioTotal,this.complemento[0],this.restService.pelicula,this.restService.salas[i],this.restService.user,this.butaca,this.fila);
+        console.log("Entrada comprada");
+      }
     }
     else
     console.log('Ocupado');

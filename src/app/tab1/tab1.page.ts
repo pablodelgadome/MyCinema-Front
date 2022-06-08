@@ -25,6 +25,12 @@ export class Tab1Page {
   ) {}
 
   ngOnInit() {
+    let date: Date = new Date();
+    var fecha = date.toISOString().toString();
+    console.log(date.toISOString().toString());
+    var fecha2 = fecha.slice(0,10)
+    console.log(fecha2);
+    this.restService.fecha=fecha2;
     console.log(this.restService.token);
     this.showLoading();
     this.obtenerPeliculas();

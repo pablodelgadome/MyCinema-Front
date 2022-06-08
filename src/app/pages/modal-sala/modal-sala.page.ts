@@ -27,6 +27,7 @@ export class ModalSalaPage implements OnInit {
   obtenerSalas() {
     this.restService.obtenerSalas().subscribe((data) => {
       this.salas = data;
+      this.restService.salas=data
       console.log(data);
     });
   }
@@ -52,6 +53,8 @@ export class ModalSalaPage implements OnInit {
   }
 
   async abrirModalEntrada(sala:any,complemento:any) {
+
+    this.restService.salaObject=this.sala
 
     for(let i = 0 ; i<this.salas.length ; i++)
     {

@@ -21,6 +21,8 @@ export class RestService {
   user:any;
   tridimensional:any;
   precioTotal:any;
+  fecha:any;
+  salaObject:any;
 
   constructor(private http: HttpClient) { }
 
